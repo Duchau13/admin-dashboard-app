@@ -1,4 +1,9 @@
 import React from "react";
+import api from "../contexts/axios"
+import { useState,useEffect } from "react";
+
+
+
 import {
     AiOutlineCalendar,
     AiOutlineShoppingCart,
@@ -53,6 +58,9 @@ export const gridOrderImage = (props) => (
         />
     </div>
 );
+
+
+
 
 export const gridOrderStatus = (props) => (
     <button
@@ -533,11 +541,11 @@ export const links = [
         title: "Pages",
         links: [
             {
-                name: "orders",
+                name: "Category",
                 icon: <AiOutlineShoppingCart />,
             },
             {
-                name: "employees",
+                name: "Freelancer",
                 icon: <IoMdContacts />,
             },
             {

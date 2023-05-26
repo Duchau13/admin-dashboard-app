@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-
+import Login from "./pages/login/Login"
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
     Ecommerce,
@@ -45,7 +45,6 @@ const App = () => {
             setCurrentMode(currentThemeMode);
         }
     }, []);
-
     return (
         <div className={currentMode === "Dark" ? "dark" : ""}>
             <BrowserRouter>
@@ -92,6 +91,7 @@ const App = () => {
 
                             <Routes>
                                 {/* dashboard  */}
+                                <Route path="/login" element={<Login/>} />
                                 <Route path="/" element={<Ecommerce />} />
                                 <Route
                                     path="/ecommerce"
@@ -99,9 +99,9 @@ const App = () => {
                                 />
 
                                 {/* pages  */}
-                                <Route path="/orders" element={<Orders />} />
+                                <Route path="/Category" element={<Orders />} />
                                 <Route
-                                    path="/employees"
+                                    path="/Freelancer"
                                     element={<Employees />}
                                 />
                                 <Route

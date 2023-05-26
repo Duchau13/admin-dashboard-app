@@ -1,0 +1,13 @@
+.container{
+    width:80%;
+    margin-left: 50px;
+    background-color: #fff;
+}
+.header-table > th{
+    width:250px;
+    margin-left: 10px;
+}
+.tr-table{
+    text-align: center;
+    height: 80px;
+}
