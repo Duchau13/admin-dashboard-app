@@ -5,7 +5,7 @@ const Input = (props) => {
     <div className={classes.wrapper}>
       <label htmlFor={props.name} className={classes["control-label"]}>
         {props.label}
-        {props.required && <span className={classes.required}>*</span>}
+        {props.required && <span className={classes.required}></span>}
         {props.error && <span className={classes.error}>({props.error})</span>}
       </label>
       <input

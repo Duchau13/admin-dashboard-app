@@ -7,6 +7,7 @@ import Table from 'react-bootstrap/Table';
 import classes from "./category.module.css";
 import api from "../contexts/axios";
 import { useState,useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const Orders = () => {
   const token = localStorage.getItem('token');
@@ -31,16 +32,41 @@ const Orders = () => {
   })
   },[])
 
-  useEffect(()=>{
-    if(!localStorage.getItem('token')){
-        navigate("/login")
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(!localStorage.getItem('token')){
+  //       navigate("/login")
+  //   }
+  // },[])
+
+  const handDelete = async (id) => {
+    // try{
+    //     //setItems(items.filter((item) => item.id_item !== item.id_item));
+    //     await api.delete(`/items/delete/${id}`,{
+    //         headers: {
+    //             Access_token: token,
+    //         },
+    //     })
+    //     //console.log(item.id_item)
+    //     .then(() =>{
+    //         alert("xoa thanh cong");
+    //         navigate('/Category') 
+    //     })
+    // }
+    // catch (err){
+    //     console.log(err)
+    // }
+    navigate('/Category')
+  }
 
   const editing = { allowDeleting: true, allowEditing: true };
   return (
     <div className={classes["container"]}>
-      <Header category="Page" title="Orders" />
+      <div className={classes["header"]}>
+        <Header category="Page" title="Orders" />
+      </div>
+      <div className={classes["add-button"]}>
+        <button onClick={() => navigate("newItem")}>Thêm Mới</button>
+      </div>
       {/* <GridComponent
         id="gridcomp"
         dataSource={ordersData}
@@ -64,6 +90,7 @@ const Orders = () => {
           <th>Name</th>
           <th>Description</th>
           <th>Create Time</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -74,6 +101,11 @@ const Orders = () => {
             <td>{category.category_name}</td>
             <td>{category.description}</td>
             <td>{category.createdAt}</td>
+            <td className={classes["button-delete"]}>
+              <button 
+                  onClick={e => handDelete(category.category_id)}
+              >Remove</button>
+            </td>
           </tr>
         ) 
         })}

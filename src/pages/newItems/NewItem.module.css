@@ -1,0 +1,96 @@
+.container{
+    width:70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+}
+
+.form-main,.form__update-main{
+    display:block;
+    width: 50%;
+}
+.form__update-main > h1{
+    margin-top: 20px;
+    margin-left: 120px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.form-main > h1 {
+    margin-top: 20px;
+    margin-left: 150px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.add-form {
+    width: 100%;
+    margin-bottom: 100px;
+    
+}
+.add-form > button {
+    height:40px;
+    width: 200px;
+    cursor: pointer;
+    background-color: #03C9D7;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    border-color: #03C9D7;
+    
+}
+
+.button-submit:hover{
+    background-color: blue;
+    border-color: blue;
+}
+.back-icon{
+    width: 70%;
+    margin:100px auto 20px auto;
+   display: flex;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.back-icon > i {
+    font-size: 30px;
+}
+.back-icon > h {
+    font-size:20px;
+}
+
+.textArea{
+    margin: 20px 0 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.textArea > label{
+    color: var(--grey);
+}
+.textArea > textarea{
+    border: 1px solid var(--grey-border);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0 10px 0;
+    font-size: inherit;
+}
+.textArea > textarea:focus{
+    outline: 2px solid var(--blue);
+}
+
+.text-err{
+    font-size: 18px;
+    color:var(--red) ;
+}
+@media only screen and (max-width: 720px){
+    .container{
+        width: 80%;
+    }
+    .form-main{
+        width: 80%;
+    }
+    .back-icon{
+        width: 80%;
+    }   
+}

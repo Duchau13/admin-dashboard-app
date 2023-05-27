@@ -23,6 +23,8 @@ import {
     Editor,
 } from "./pages";
 import "./App.css";
+import NewItem from "./pages/newItems/NewItem";
+import UpdateItem from "./pages/newItems/UpdateItem";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
@@ -100,6 +102,8 @@ const App = () => {
 
                                 {/* pages  */}
                                 <Route path="/Category" element={<Orders />} />
+                                <Route path="/Category/:id" element={<UpdateItem/>} />
+                                <Route path="/Category/newItem" element={<NewItem />} />
                                 <Route
                                     path="/Freelancer"
                                     element={<Employees />}
