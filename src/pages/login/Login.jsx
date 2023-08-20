@@ -4,8 +4,8 @@ import Input from "../../components/Input/Input"
 //  import loginUser from "../../contexts/apiRequest"
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginFailed, loginStart, loginSuccess, logoutStart } from "../../contexts/authSlice";
 import api from "../../contexts/axios";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     
@@ -16,14 +16,17 @@ const Home = () => {
 
     const loginUser = async(user,navigate) => {
         try{
-            const res = await api.post("/api/auth/login",user);
-            navigate("/")
+            const res = await api.post("/account/login",user);
+            navigate("/Order")
             console.log(res);
-            localStorage.setItem('token',res.data.access_token);
-            localStorage.setItem('timeOut',res.data.expireTime)
-            
+            localStorage.setItem('token',res.data.token);
+            localStorage.setItem('timeOut',res.data.expireTimeToken)
+            localStorage.setItem('id_role',res.data.id_role)
+            localStorage.setItem('user_name',res.data.userInfo.name)
+            localStorage.setItem('id_customer',res.data.userInfo.id_customer)
         }
         catch(err){
+            console.log(err);
             setError(err.response.data.message);
         } 
     }
@@ -31,7 +34,7 @@ const Home = () => {
     const handleLogin = (e) => {
       e.preventDefault();
       const newUser = {
-        email: username,
+        username: username,
         password: password,
       };
       console.log(newUser);
@@ -72,6 +75,9 @@ const Home = () => {
                         />
                         
                         <button type="submit">Đăng Nhập</button>
+                        <div className={classes["register"]}>
+                            <Link to="/register">Đăng ký tài khoản mới</Link>
+                        </div>
                     </form>
             </div>
         </div>

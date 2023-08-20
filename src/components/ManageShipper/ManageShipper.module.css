@@ -1,0 +1,69 @@
+.container__orders{
+    width:100%;
+}
+.container__orders > hr{
+    background-color:#000
+}
+.cart-item{
+    display:flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 30px;
+    height: 150px;
+    background-color: var(--milk-bg);
+    border-radius: 10px;
+}
+.button-create > button{
+    width: 220px;
+    height:50px;
+    background-color:#03c9d7;
+    border-radius: 10px
+}
+.cart-item > div {
+    width: 25%;
+}
+.icon {
+    cursor: pointer;
+    width: 25px;
+}
+.icon:hover{
+    background-color: var(--primary);
+}
+
+.name-item{
+    font-weight:400;
+    font-size: 16px;
+}
+.name-item > p{
+    font-weight: 500;
+    font-size: 18x;
+}
+
+.input-quantity{
+    align-items: center;
+    text-align: center;
+}
+.input-quantity > input{
+    width: 45px;
+    height: 45px;
+}
+
+
+.price > p{
+    font-weight:400;
+    font-size: 16px;
+}
+
+.total-price > button {
+    background-color: #03c9d7;
+    width: 150px;
+    height:60px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+hr {
+    color: #000;
+    height: 1px;
+}

@@ -1,0 +1,13 @@
+.login-button{
+    background-color: rgb(3, 201, 215);
+    border-radius: 10px;
+    width: 100px;
+    margin-top: 10px;
+    height: 50px;
+}
+.log-out{
+    background-color: rgb(3, 201, 215);
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}

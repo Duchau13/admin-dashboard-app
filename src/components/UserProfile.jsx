@@ -1,14 +1,22 @@
 import React from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
-
+import { useNavigate } from 'react-router-dom';
 import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
+import classes from '../components/style/Navbar.module.css'
 
 const UserProfile = () => {
+  const navigate = useNavigate()
   const { currentColor } = useStateContext();
-
+  const user_role = localStorage.getItem("id_role")
+  const userName = localStorage.getItem("user_name")
+  const handleLogout = () => {
+    localStorage.clear()
+    navigate("/ecommerce")
+  }
+  console.log(userName)
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
@@ -28,7 +36,7 @@ const UserProfile = () => {
           alt="user-profile"
         />
         <div>
-          <p className="font-semibold text-xl dark:text-gray-200"> Michael Roberts </p>
+          <p className="font-semibold text-xl dark:text-gray-200">{userName}</p>
           <p className="text-gray-500 text-sm dark:text-gray-400">  Administrator   </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> info@shop.com </p>
         </div>
@@ -52,13 +60,19 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
-        <Button
+        {/* <Button
           color="white"
           bgColor={currentColor}
           text="Logout"
           borderRadius="10px"
           width="full"
-        />
+          onClick={handleLogout}
+        /> */}
+        <button
+          className={classes["log-out"]}
+          onClick={handleLogout}
+        >
+          Log Out</button>
       </div>
     </div>
 

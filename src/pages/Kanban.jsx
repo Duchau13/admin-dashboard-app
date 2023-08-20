@@ -1,24 +1,47 @@
-import React from 'react';
-import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
-import { kanbanData, kanbanGrid } from '../data/dummy';
-import { Header } from '../components';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
-const Kanban = () => (
-  <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-    <Header category="App" title="Kanban" />
-    <KanbanComponent
-      id="kanban"
-      keyField="Status"
-      dataSource={kanbanData}
-      cardSettings={{ contentField: 'Summary', headerField: 'Id' }}
-    >
-      <ColumnsDirective>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        {kanbanGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
-      </ColumnsDirective>
-    </KanbanComponent>
-  </div>
-);
+const Kanban = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  return (
+    <div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+          <textarea id=""></textarea>
+          <button>Huỷ Đơn</button>
+        </Box>
+      </Modal>
+    </div>
+  );
+};
 
 export default Kanban;

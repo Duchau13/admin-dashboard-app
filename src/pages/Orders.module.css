@@ -1,0 +1,173 @@
+
+
+.container{
+    width:90%;
+    margin-left: 50px;
+    background-color: #fff;
+    border-radius: 15px;
+
+}
+.container > table,th,td{
+    border: 1px solid #000;
+}
+.container > table {
+    width: 90%;
+    margin:auto
+}
+.footer{
+    padding-bottom: 50px;
+}
+.header{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.header > p {
+    padding-top: 20px;
+    font-size:25px;
+    font-weight: 500;
+    padding-bottom: 40px;
+}
+.header-table > th{
+    width:250px;
+    margin-left: 10px;
+    font-weight:400;
+    height: 50px;
+}
+.tr-table{
+    text-align: center;
+    height: 80px;
+}
+
+.add-button{
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.add-button > button {
+    width:100px;
+    height: 40px;
+    background-color: aqua;
+}
+
+.button{
+    width:100px;
+    height: 30px
+}
+
+
+.input_phone{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.input_phone > label{
+    padding-right: 20px;
+}
+
+.input_phone > label > input{
+    height: 30px;
+    border: 1px solid #000;
+    margin-left: 20px;
+}
+.input_phone  > input{
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    background-color: #03c9d7;
+    border-radius: 5px;
+}
+
+
+
+/* serach phone */
+
+.container__orders{
+    width:100%;
+}
+.cart-item{
+    display:flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 30px;
+    height: 150px;
+    background-color: var(--milk-bg);
+    border-radius: 10px;
+}
+.cart-item > div {
+    width: 20%;
+}
+.icon {
+    cursor: pointer;
+    width: 25px;
+}
+.icon:hover{
+    background-color: var(--primary);
+}
+
+.name-item{
+    font-weight:400;
+    font-size: 16px;
+}
+.name-item > p{
+    cursor: pointer;
+}
+
+.input-quantity{
+    align-items: center;
+    text-align: center;
+}
+.input-quantity > input{
+    width: 45px;
+    height: 45px;
+}
+
+
+.price > p{
+    font-weight:400;
+    font-size: 16px;
+}
+
+.total-price > p {
+    font-weight:400;
+    font-size: 16px;
+}
+
+.text-confirm{
+    font-size:18px;
+    color: #00FF00;
+    font-weight: 500;
+}
+.text-cancel{
+    font-size:18px;
+    color: red;
+    font-weight: 500;
+}
+.text-wait{
+    font-size:18px;
+    color: #FFCC33;
+    font-weight: 600;
+}
+.text-unconfirm{
+    font-size:18px;
+    color: #FFCC33;
+    font-weight: 600;
+}
+
+.status-wait{
+    display: block;
+}
+
+
+.button-cancle{
+    margin-top: 10px;
+    width: 130px;
+    height: 35px;
+    background-color: red;
+    border-color: red;
+}
+.time-order{
+    cursor: pointer;
+}
+.header-table > th {
+    text-align: center;
+}

@@ -1,15 +1,14 @@
 import React from 'react';
-import { useNavigate,useParams } from 'react-router-dom';
-import { Header } from '../components';
 import Table from 'react-bootstrap/Table';
+import { Navbar } from '../components';
 import classes from "./Orders.module.css";
+import api from "../contexts/axios";
 import {ToastContainer, toast} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import api from "../contexts/axios";
+import { useNavigate } from 'react-router-dom';
 import { useState,useEffect } from 'react';
-import { Link } from "react-router-dom";
 
-const Orders = () => {
+const ListOrders = () => {
   const token = localStorage.getItem('token');
   const id_role = localStorage.getItem('id_role');
   const navigate = useNavigate();
@@ -23,14 +22,7 @@ const Orders = () => {
     return res
   }
   useEffect(() => {
-  
-  getData().then((res) => {
-    setCategorys(res.data.orderList)
-  })
-  getData().catch((err) => {
-    console.log(err)
-  })
-  if(id_role==3 || id_role==4){
+  if(id_role==1){
     toast.error("Bạn không có quyền sử dụng chức năng này", {
         position: "top-right",
         autoClose: 2000,
@@ -42,9 +34,15 @@ const Orders = () => {
         theme: "light",
     });;
     setTimeout(() => {
-        navigate('/listOrders')
+        navigate('/CreateOrder')
     }, 1000);
   }
+  getData().then((res) => {
+    setCategorys(res.data.orderList)
+  })
+  getData().catch((err) => {
+    console.log(err)
+  })
   },[])
 
   // useEffect(()=>{
@@ -76,9 +74,51 @@ const Orders = () => {
     const order = e.value
     //console.log(order)
     if(order==0){
+        return(
+            <div className={classes["container-status"]}>
+              <p className={classes['text-unconfirm']}>Chưa Xác Nhận</p>
+            </div>
+            // <p className={classes['text-unconfirm']}>Chưa Xác Nhận</p>   
+        )
+    }
+    if(order==1){
+        return(
+            <div className={classes["container-status"]}>
+                <p className={classes['text-confirm']} >Đã Xác Nhận</p>   
+            </div>
+        )
+    }
+    if(order==3){
         return(    
-            // <button className={classes['button-delete']}>Huỷ Đơn Hàng</button>
-            <p className={classes['text-unconfirm']}>Chưa Xác Nhận</p>   
+            <p className={classes['text-confirm']} >Đang Nhận Hàng</p>   
+        )
+    }
+    if(order==5){
+        return(    
+            <div className={classes["container-status"]}>
+                <p className={classes['text-confirm']} >Hàng Ở Kho</p>   
+            </div> 
+        )
+    }
+    if(order==4){
+        return(    
+            <p className={classes['text-confirm']} >Đang vận chuyển hàng về kho</p>   
+        )
+    }
+    if(order==6){
+        return(    
+            <p className={classes['text-confirm']} >Đợi giao hàng</p>   
+        )
+    }
+    
+    if(order==7){
+        return(    
+            <p className={classes['text-confirm']} >Đang giao hàng</p>   
+        )
+    }
+    if(order==8){
+        return(    
+            <p className={classes['text-confirm']} >Hoàn Thành Đơn Hàng</p>   
         )
     }
     if(order==2){
@@ -87,17 +127,15 @@ const Orders = () => {
     )}
     else{
         return (
-            <p className={classes['text-confirm']} >Đã xác nhận </p>
+            <p className={classes['text-unconfirm']} >Đơn hàng không hoàn thành. đợi hoàn kho</p>
     )}
   }
-  function cancelOrder(order){
-    return(
-      <button className={classes['button-delete']}>Huỷ Đơn Hàng</button>  
-    )
-  }
-  const editing = { allowDeleting: true, allowEditing: true };
+  
   return (
     <div className={classes["container"]}>
+      <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+        <Navbar/>
+      </div>
       <div className={classes["header"]}>
         <p>Danh sách đơn giao hàng</p>
       </div>
@@ -117,7 +155,7 @@ const Orders = () => {
         </ColumnsDirective>
         <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport]} />
       </GridComponent> */} 
-      <Table striped bordered hover>
+      <Table   hover>
       <thead >
         <tr className={classes["header-table"]}>
           <th>Thời gian tạo đơn</th>
@@ -131,7 +169,7 @@ const Orders = () => {
       {categorys.map((category) =>{
         return(
           <tr key={category.id_order} className={classes["tr-table"]}>
-            <td onClick={() => navigate(`/order/${category.id_order}`)} className={classes["time-order"]}>{category.time_create}</td>
+            <td onClick={() => navigate(`/listOrders/${category.id_order}`)} className={classes["time-order"]}>{category.time_create}</td>
             <td>{category.address_receive}</td>
             <td>{category.address_delivery}</td>
             <td>{category.delivery_fee}</td>
@@ -159,4 +197,4 @@ const Orders = () => {
     </div>
   );
 };
-export default Orders;
+export default ListOrders;

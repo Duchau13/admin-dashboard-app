@@ -5,28 +5,23 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import Login from "./pages/login/Login"
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
-    Ecommerce,
     Orders,
     Calendar,
-    Employees,
-    Stacked,
-    Pyramid,
-    Customers,
     Kanban,
-    Line,
-    Area,
-    Bar,
-    Pie,
-    Financial,
     ColorPicker,
-    ColorMapping,
-    Editor,
 } from "./pages";
 import "./App.css";
-import NewItem from "./pages/newItems/NewItem";
-import UpdateItem from "./pages/newItems/UpdateItem";
-
+import SearchOrder from "./pages/SearchOrder";
+import CreateOrder from "./pages/CreateOrder";
+import OrdersDetail from "./components/orderDetail/Orderdetail";
+import ListOrders from "./pages/ListOrder";
+import ListOrdersDetail from "./components/listOrderDetail/ListOrderDetail";
+import Register from "./components/Register/Register";
+import ListShipper from "./pages/listShipper/ListShipper";
+import Shipper from "./pages/Shipper"
+import CreateShipper from "./components/Create_shipper/CreateShipper"
 import { useStateContext } from "./contexts/ContextProvider";
+import OrderStatus from "./components/OrderStatus/OrderStatus";
 
 const App = () => {
     const {
@@ -38,7 +33,7 @@ const App = () => {
         themeSettings,
         setThemeSettings,
     } = useStateContext();
-
+    const token = localStorage.getItem('token')
     useEffect(() => {
         const currentThemeColor = localStorage.getItem("colorMode");
         const currentThemeMode = localStorage.getItem("themeMode");
@@ -86,7 +81,7 @@ const App = () => {
                         }
                     >
                         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-                            <Navbar />
+                            {/* <Navbar /> */}
                         </div>
                         <div>
                             {themeSettings && <ThemeSettings />}
@@ -94,39 +89,44 @@ const App = () => {
                             <Routes>
                                 {/* dashboard  */}
                                 <Route path="/login" element={<Login/>} />
-                                <Route path="/" element={<Ecommerce />} />
+                                <Route path="/register" element={<Register/>} />
+                                <Route path="/createOrder" element={<CreateOrder />} />
                                 <Route
-                                    path="/ecommerce"
-                                    element={<Ecommerce />}
+                                    path="/createOrder"
+                                    element={<CreateOrder />}
+                                
                                 />
-
+                                <Route path="/Order" element={<Orders />} />
+                                <Route path="/Order/:id_order" element={<OrdersDetail />} />
+                                <Route
+                                    path="/OrderbyPhone"
+                                    element={<SearchOrder />}
+                                />
                                 {/* pages  */}
-                                <Route path="/Category" element={<Orders />} />
-                                <Route path="/Category/:id" element={<UpdateItem/>} />
-                                <Route path="/Category/newItem" element={<NewItem />} />
                                 <Route
-                                    path="/Freelancer"
-                                    element={<Employees />}
+                                    path="/listOrders"
+                                    element={<ListOrders />}
                                 />
-                                <Route
-                                    path="/customers"
-                                    element={<Customers />}
-                                />
+                                <Route path="/listOrders/:id_order" element={<ListOrdersDetail />} />
 
                                 {/* apps  */}
-                                <Route path="/kanban" element={<Kanban />} />
-                                <Route path="/editor" element={<Editor />} />
+                                <Route path="/report" element={<Kanban />} />
+                                <Route path="/shipper/:id_order" element={<ListShipper />} />
                                 <Route
-                                    path="/calendar"
-                                    element={<Calendar />}
+                                    path="/shipper"
+                                    element={<Shipper />}
                                 />
                                 <Route
-                                    path="/color-picker"
-                                    element={<ColorPicker />}
+                                    path="/shipper/register"
+                                    element={<CreateShipper />}
+                                />
+                                <Route
+                                    path="/order/status/:id_order"
+                                    element={<OrderStatus />}
                                 />
 
                                 {/* charts  */}
-                                <Route path="/line" element={<Line />} />
+                                {/* <Route path="/line" element={<Line />} />
                                 <Route path="/area" element={<Area />} />
                                 <Route path="/bar" element={<Bar />} />
                                 <Route path="/pie" element={<Pie />} />
@@ -139,7 +139,7 @@ const App = () => {
                                     element={<ColorMapping />}
                                 />
                                 <Route path="/pyramid" element={<Pyramid />} />
-                                <Route path="/stacked" element={<Stacked />} />
+                                <Route path="/stacked" element={<Stacked />} /> */}
                             </Routes>
                         </div>
                         <Footer />

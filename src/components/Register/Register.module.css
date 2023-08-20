@@ -12,7 +12,7 @@
     
 }
 .form-login{
-    width:500px;
+    width:700px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@
 }
 .form-login > form > button{
     height:50px;
-    width: 300px;
+    width: 400px;
     cursor: pointer;
     background-color: rgb(3, 201, 215);
     font-size: 14px;

@@ -528,91 +528,88 @@ export const employeesGrid = [
 
 export const links = [
     {
-        title: "Dashboard",
         links: [
             {
-                name: "ecommerce",
+                name: "Tạo đơn vận chuyển",
                 icon: <FiShoppingBag />,
+                link:"createOrder"
             },
         ],
     },
 
     {
-        title: "Pages",
+        title: "Khách Hàng",
         links: [
             {
-                name: "Category",
+                name: "Danh Sách Đơn Hàng",
                 icon: <AiOutlineShoppingCart />,
+                link: "Order"
             },
             {
-                name: "Freelancer",
+                name: "Đơn Nhận Hàng",
                 icon: <IoMdContacts />,
-            },
-            {
-                name: "customers",
-                icon: <RiContactsLine />,
+                link: "OrderbyPhone"
             },
         ],
     },
     {
-        title: "Apps",
+        title: "ADMIN",
         links: [
             {
-                name: "calendar",
+                name: "Đơn Giao Hàng",
                 icon: <AiOutlineCalendar />,
+                link: "listOrders"
             },
             {
-                name: "kanban",
+                name: "Thống kê, Báo cáo",
                 icon: <BsKanban />,
+                link: "report"
             },
             {
-                name: "editor",
+                name: "Nhân viên giao hàng",
                 icon: <FiEdit />,
-            },
-            {
-                name: "color-picker",
-                icon: <BiColorFill />,
+                link: "shipper"
             },
         ],
     },
-    {
-        title: "Charts",
-        links: [
-            {
-                name: "line",
-                icon: <AiOutlineStock />,
-            },
-            {
-                name: "area",
-                icon: <AiOutlineAreaChart />,
-            },
+    // {
+    //     title: "Charts",
+    //     links: [
+    //         {
+    //             name: "line",
+    //             icon: <AiOutlineStock />,
+    //         },
+    //         {
+    //             name: "area",
+    //             icon: <AiOutlineAreaChart />,
+    //         },
 
-            {
-                name: "bar",
-                icon: <AiOutlineBarChart />,
-            },
-            {
-                name: "pie",
-                icon: <FiPieChart />,
-            },
-            {
-                name: "financial",
-                icon: <RiStockLine />,
-            },
-            {
-                name: "color-mapping",
-                icon: <BsBarChart />,
-            },
-            {
-                name: "pyramid",
-                icon: <GiLouvrePyramid />,
-            },
-            {
-                name: "stacked",
-                icon: <AiOutlineBarChart />,
-            },
-        ],
-    },
+    //         {
+    //             name: "bar",
+    //             icon: <AiOutlineBarChart />,
+    //         },
+    //         {
+    //             name: "pie",
+    //             icon: <FiPieChart />,
+    //         },
+    //         {
+    //             name: "financial",
+    //             icon: <RiStockLine />,
+    //         },
+    //         {
+    //             name: "color-mapping",
+    //             icon: <BsBarChart />,
+    //         },
+    //         {
+    //             name: "pyramid",
+    //             icon: <GiLouvrePyramid />,
+    //         },
+    //         {
+    //             name: "stacked",
+    //             icon: <AiOutlineBarChart />,
+    //         },
+    //     ],
+    // },
 ];
 
 export const cartData = [
